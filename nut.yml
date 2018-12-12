@@ -1,0 +1,16 @@
+syntax_version: "7"
+project_name: buttercup
+macros:
+  run:
+    usage: run the project in the container
+    enable_gui: true
+    volumes:
+      data:
+        host_path: /home/myuser/.buttercup/config
+        container_path: /home/app/.config
+      pki_cache:
+        host_path: /home/myuser/.buttercup/pki
+        container_path: /home/app/.pki
+docker_image: docker-buttercup-desktop:latest
+ports:
+  - "12821:12821"
